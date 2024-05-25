@@ -45,8 +45,8 @@ Insert gif or link to demo
 ## Roadmap
 
 - [x] Create a project
-- [ ] Create a server
-- [ ] Create connection with mongodb
+- [x] Create a server
+- [x] Create connection with mongodb
 - [ ] Add authentication
 - [ ] Add validations
 - [ ] Create ubications crud
