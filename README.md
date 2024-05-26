@@ -48,8 +48,8 @@ Insert gif or link to demo
 - [x] Create a server
 - [x] Create connection with mongodb
 - [ ] Add authentication
-- [ ] Add validations
-- [ ] Create ubications crud
-  - [ ] Create
-  - [ ] Update
-  - [ ] Delete
+- [x] Add validations
+- [x] Create ubications crud
+  - [x] Create
+  - [x] Update
+  - [x] Delete
