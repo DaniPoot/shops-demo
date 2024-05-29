@@ -1,5 +1,15 @@
 <script setup>
+import supabase from '@/boot/supabase'
+
+async function retrieveSession() {
+  const { data } = await supabase.retriveUser()
+  if (data) {
+    supabase.setAccessToken()
+  }
+}
+retrieveSession()
 </script>
+
 
 <template>
   <h1>Full Stack Demo App</h1>
