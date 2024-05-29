@@ -64,7 +64,14 @@ const onSubmit = form.handleSubmit((values) => {
   } else {
     state.addShop(values)
   }
-  form.resetForm()
+  form.resetForm(({
+    address: {
+      coordinates: {
+      lat: 20.97537,
+      lng: -89.61696
+      }
+    }
+  }))
 })
 
 function onSelectShop(shopId) {
