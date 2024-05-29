@@ -7,7 +7,7 @@ import ShopInformation from '@/components/shop/ShopInformation.vue';
 import { storeToRefs } from 'pinia'
 
 const store = useShopStore()
-const { shop, shops } = storeToRefs(store)
+const { shop, shops, isLoading } = storeToRefs(store)
 
 </script>
 
@@ -15,6 +15,7 @@ const { shop, shops } = storeToRefs(store)
   <MapLayout>
     <template #aside>
       <ShopInformation :shop="shop" />
+      <div class="animate-pulse text-center p-2" v-if="isLoading">Loading...</div>
     </template>
     <MapboxComponent
       :shops="shops"

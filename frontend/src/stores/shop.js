@@ -21,7 +21,7 @@ export const useShopStore = defineStore('shop', () => {
     } catch (error) {
       error.value = 'Error fetching shops'
     } finally {
-      isLoading.value = true
+      isLoading.value = false
     }
   }
 
@@ -79,6 +79,7 @@ export const useShopStore = defineStore('shop', () => {
     addShop,
     updateShop,
     deleteShop,
-    selectShop
+    selectShop,
+    isLoading
   }
 })
