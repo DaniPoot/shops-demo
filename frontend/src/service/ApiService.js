@@ -16,7 +16,6 @@ export default class ApiService {
   }
 
   create (shop) {
-    console.log({ shop }, 'api')
     return this.axios.post(`${this.path}/create`, shop)
   }
 

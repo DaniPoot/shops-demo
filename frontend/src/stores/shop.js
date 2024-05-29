@@ -29,7 +29,6 @@ export const useShopStore = defineStore('shop', () => {
     try {
       isLoading.value = true
       const response = await shopApi.update({ id: newShop._id, shop: newShop })
-      console.log(response.data)
       shops.value = shops.value.map(s => {
         if (s._id === newShop._id) {
           s = response.data
@@ -37,7 +36,6 @@ export const useShopStore = defineStore('shop', () => {
         return s
       })
     } catch (error) {
-      console.log(error)
       error.value = 'Error updating shop'
     } finally {
       isLoading.value = false
