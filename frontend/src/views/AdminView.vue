@@ -76,6 +76,7 @@ function onSelectShop(shopId) {
 function onDeleteShop() {
   state.deleteShop(form.values._id)
   form.resetForm()
+  isNewShop.value = true
 }
 
 </script>
