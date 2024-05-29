@@ -66,14 +66,7 @@ const onSubmit = form.handleSubmit((values) => {
   } else {
     state.addShop(values)
   }
-  form.resetForm(({
-    address: {
-      coordinates: {
-      lat: 20.97537,
-      lng: -89.61696
-      }
-    }
-  }))
+  form.resetForm({ values: {} })
 })
 
 function onSelectShop(shopId) {
@@ -241,7 +234,7 @@ function onDeleteShop() {
     </template>
     <MapboxComponent
       :shops="state.shops"
-      :model="form.values.address.coordinates"
+      v-model="form.values.address.coordinates"
       @onSelectShop="onSelectShop"
       @update:modelValue="form.setFieldValue('address.coordinates', $event)"
       editing
