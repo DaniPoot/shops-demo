@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import MapLayout from '@/layouts/MapLayout.vue'
+import LoginBlock from '@/layouts/LoginBlock.vue'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
@@ -79,6 +80,7 @@ function onDeleteShop() {
 </script>
 
 <template>
+<LoginBlock>
   <MapLayout>
     <template #aside>
       <div class="text-center pb-2" v-if="!isNewShop">
@@ -230,6 +232,7 @@ function onDeleteShop() {
       :editing="isNewShop"
     />
   </MapLayout>
+</LoginBlock>
 </template>
 
 <style></style>
