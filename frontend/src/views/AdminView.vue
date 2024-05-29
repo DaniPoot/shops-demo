@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { useShopStore } from '@/stores/shop'
+import { storeToRefs } from 'pinia'
 import {
   FormControl,
   FormDescription,
@@ -24,6 +25,7 @@ defineProps({
 })
 
 const state = useShopStore()
+const { isLoading } = storeToRefs(state)
 const isNewShop = ref(true)
 
 const form = useForm({
@@ -220,13 +222,17 @@ function onDeleteShop() {
               <FormMessage />
             </FormItem>
           </FormField>
-          <Button type="submit">
+          <Button
+            type="submit"
+            :disabled="isLoading"
+          >
             Submit
           </Button>
           <Button
             variant="destructive"
             @click.prevent="onDeleteShop"
             v-if="!isNewShop"
+            :disabled="isLoading"
           >
             Delete shop
           </Button>
