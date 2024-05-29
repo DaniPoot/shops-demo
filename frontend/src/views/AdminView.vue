@@ -60,6 +60,7 @@ const form = useForm({
 const onSubmit = form.handleSubmit((values) => {
   if (!isNewShop.value) {
     state.updateShop(values)
+    isNewShop.value = true
   } else {
     state.addShop(values)
   }
@@ -229,7 +230,7 @@ function onDeleteShop() {
       :model="form.values.address.coordinates"
       @onSelectShop="onSelectShop"
       @update:modelValue="form.setFieldValue('address.coordinates', $event)"
-      :editing="isNewShop"
+      editing
     />
   </MapLayout>
 </LoginBlock>

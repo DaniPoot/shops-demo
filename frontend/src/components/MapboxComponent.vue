@@ -25,7 +25,14 @@ const emit = defineEmits(['onSelectShop'])
 
 const accessToken = import.meta.env.VITE_MAPBOX
 
-const shopCoordinates = computed(() => props.shops.filter(shop => shop.address).map(shop => {
+const selectedShop = ref(null)
+
+const shopCoordinates = computed(() => props.shops.filter(shop => {
+  if (selectedShop.value === shop._id) {
+    return
+  }
+  return shop.address.coordinates
+}).map(shop => {
   const { lat, lng } = shop.address.coordinates
 
   return {
@@ -35,6 +42,8 @@ const shopCoordinates = computed(() => props.shops.filter(shop => shop.address).
 }))
 
 function onSelectShop(shop) {
+  selectedShop.value = shop.id
+  newPlace.value = shop.coordinates
   emit('onSelectShop', shop.id)
 }
 
