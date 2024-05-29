@@ -42,8 +42,10 @@ const shopCoordinates = computed(() => props.shops.filter(shop => {
 }))
 
 function onSelectShop(shop) {
-  selectedShop.value = shop.id
-  newPlace.value = shop.coordinates
+  if (props.editing) {
+    selectedShop.value = shop.id
+    newPlace.value = shop.coordinates
+  }
   emit('onSelectShop', shop.id)
 }
 
