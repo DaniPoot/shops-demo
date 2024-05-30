@@ -61,12 +61,19 @@ function onDragEnd(event) {
   model.value = { lat: coordinates.lat, lng: coordinates.lng }
 }
 
+function onMapClick(event) {
+  if (props.editing) {
+    newPlace.value = [event.lngLat.lng, event.lngLat.lat]
+    model.value = { lat: event.lngLat.lat, lng: event.lngLat.lng }
+  }
+}
 </script>
 
 <template>
   <MapboxMap
     class="h-dvh w-full"
     :access-token="accessToken"
+    @mb-click="onMapClick"
     map-style="mapbox://styles/mapbox/streets-v11">
     <MapboxMarker
       v-for="shop in shopCoordinates"
